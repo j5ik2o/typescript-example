@@ -1,0 +1,4 @@
+
+```shell
+$ npx tsc --init
+```
