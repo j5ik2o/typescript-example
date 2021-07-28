@@ -14,5 +14,4 @@ module.exports = merge(commonConfig, {
     library: 'ac_[name]',
     libraryTarget: 'var',
   },
-  plugins: [new ForkTsCheckerWebpackPlugin()],
 })

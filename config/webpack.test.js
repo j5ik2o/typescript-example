@@ -5,5 +5,4 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 module.exports = merge(commonConfig, {
   mode: 'development',
   devtool: 'inline-source-map',
-  plugins: [new ForkTsCheckerWebpackPlugin()],
 })

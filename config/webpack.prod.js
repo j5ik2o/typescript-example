@@ -12,5 +12,4 @@ module.exports = merge(commonConfig, {
     sourceMapFilename: '[name].[chunkhash].bundle.map',
     chunkFilename: '[id].[chunkhash].chunk.js',
   },
-  plugins: [new ForkTsCheckerWebpackPlugin()],
 })

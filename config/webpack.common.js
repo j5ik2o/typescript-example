@@ -1,4 +1,5 @@
 const helpers = require('./helpers')
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -21,4 +22,15 @@ module.exports = {
     path: helpers.root('dist'),
     clean: true,
   },
+  plugins: [
+    new ForkTsCheckerWebpackPlugin({
+      typescript: {
+        diagnosticOptions: {
+          semantic: true,
+          syntactic: true,
+        },
+        mode: 'write-references',
+      },
+    }),
+  ],
 }
