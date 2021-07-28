@@ -2,14 +2,14 @@
   "name": "typescript-sandbox",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index.js",
+  "main": "dist/main.js",
   "scripts": {
     "start": "node .",
     "test": "jest --forceExit --coverage --verbose",
-    "build": "tsc",
+    "build": "webpack",
     "clean": "rimraf dist/*",
-    "dev": "ts-node src/index.ts",
-    "dev:watch": "ts-node-dev --respawn src/index.ts",
+    "dev": "ts-node src/main.ts",
+    "dev:watch": "ts-node-dev --respawn src/main.ts",
     "fix:eslint": "tsc --noEmit && eslint ./src --ext .js,.ts,.jsx,.tsx --fix",
     "fix:prettier": "prettier --write ./src"
   },
