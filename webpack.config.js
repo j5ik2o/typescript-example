@@ -1,27 +1,15 @@
-const path = require('path')
-
-module.exports = {
-  mode: 'development',
-  entry: {
-    app: './src/main.ts',
-  },
-  devtool: 'inline-source-map',
-  module: {
-    rules: [
-      {
-        test: /\.ts$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-      },
-    ],
-  },
-  resolve: {
-    // 拡張子を配列で指定
-    extensions: ['.ts', '.js'],
-  },
-  output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-    clean: true,
-  },
+// Look in ./config folder for webpack.dev.js
+switch (process.env.NODE_ENV) {
+  case 'prod':
+  case 'production':
+    module.exports = require('./config/webpack.prod')
+    break
+  case 'test':
+  case 'testing':
+    module.exports = require('./config/webpack.test')
+    break
+  case 'dev':
+  case 'development':
+  default:
+    module.exports = require('./config/webpack.dev')
 }

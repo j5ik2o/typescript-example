@@ -2,6 +2,7 @@
 # build artefacts
 # .eslintrc.js
 webpack.*.js
+config/*
 dist/*
 coverage/*
 # data definition files
