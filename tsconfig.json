@@ -80,8 +80,12 @@
     /* Disallow inconsistently-cased references to the same file. */
   },
   "include": [
-    "src/**/*",
+    "src/**/*.ts",
     ".eslintrc.js",
     ".prettierrc.js"
+  ],
+  "exclude":[
+    "src/**/*.test.ts",
+    "src/**/*.spec.ts",
   ]
 }
