@@ -4,6 +4,7 @@ module.exports = {
     browser: true,
     es2021: true,
     commonjs: true,
+    'jest/globals': true,
   },
   extends: [
     'eslint:recommended',
@@ -15,17 +16,17 @@ module.exports = {
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 12,
+    ecmaVersion: 2018,
     sourceType: 'module',
-    project: './tsconfig.json',
+    project: './tsconfig.eslint.json',
   },
   plugins: ['@typescript-eslint', 'jest'],
   rules: {
     'no-unused-vars': 'off',
     '@typescript-eslint/explicit-function-return-type': 'error',
-    '@typescript-eslint/no-unsafe-call': 'warn',
-    '@typescript-eslint/no-unsafe-member-access': 'warn',
-    '@typescript-eslint/no-unsafe-return': 'warn',
+    // '@typescript-eslint/no-unsafe-call': 'warn',
+    // '@typescript-eslint/no-unsafe-member-access': 'warn',
+    // '@typescript-eslint/no-unsafe-return': 'warn',
     '@typescript-eslint/ban-types': [
       'error',
       {

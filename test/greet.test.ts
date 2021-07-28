@@ -1,4 +1,4 @@
-import { greet } from './greet'
+import { greet } from '../src/greet'
 
 test('greet', () => {
   const result = greet('abc')
