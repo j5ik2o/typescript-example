@@ -12,12 +12,5 @@ module.exports = merge(commonConfig, {
     sourceMapFilename: '[name].[chunkhash].bundle.map',
     chunkFilename: '[id].[chunkhash].chunk.js',
   },
-  plugins: [
-    new ForkTsCheckerWebpackPlugin({
-      typescript: {
-        enabled: true,
-        configFile: helpers.root('tsconfig.release.json'),
-      },
-    }),
-  ],
+  plugins: [new ForkTsCheckerWebpackPlugin()],
 })
