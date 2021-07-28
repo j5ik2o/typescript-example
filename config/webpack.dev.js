@@ -1,27 +1,13 @@
 const helpers = require('./helpers')
 const { merge } = require('webpack-merge')
 const commonConfig = require('./webpack.common.js')
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 
 module.exports = merge(commonConfig, {
   mode: 'development',
   devtool: 'cheap-module-source-map',
   devServer: {
     contentBase: './dist',
-  },
-  module: {
-    rules: [
-      {
-        test: /\.ts$/,
-        use: {
-          loader: 'ts-loader',
-          options: {
-            transpileOnly: true,
-            configFile: helpers.root('tsconfig.json'),
-          },
-        },
-        exclude: /node_modules/,
-      },
-    ],
   },
   output: {
     path: helpers.root('dist'),
@@ -31,4 +17,12 @@ module.exports = merge(commonConfig, {
     library: 'ac_[name]',
     libraryTarget: 'var',
   },
+  plugins: [
+    new ForkTsCheckerWebpackPlugin({
+      typescript: {
+        enabled: true,
+        configFile: helpers.root('tsconfig.json'),
+      },
+    }),
+  ],
 })
