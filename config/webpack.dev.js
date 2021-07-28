@@ -8,6 +8,21 @@ module.exports = merge(commonConfig, {
   devServer: {
     contentBase: './dist',
   },
+  module: {
+    rules: [
+      {
+        test: /\.ts$/,
+        use: {
+          loader: 'ts-loader',
+          options: {
+            transpileOnly: true,
+            configFile: helpers.root('tsconfig.json'),
+          },
+        },
+        exclude: /node_modules/,
+      },
+    ],
+  },
   output: {
     path: helpers.root('dist'),
     filename: '[name].bundle.js',
