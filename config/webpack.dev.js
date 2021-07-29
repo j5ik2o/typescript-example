@@ -4,13 +4,21 @@ const commonConfig = require('./webpack.common.js')
 
 module.exports = merge(commonConfig, {
   mode: 'development',
+  target: 'web',
   devtool: 'cheap-module-source-map',
   output: {
     path: helpers.root('dist'),
     filename: '[name].bundle.js',
-    sourceMapFilename: '[name].map',
-    chunkFilename: '[id].chunk.js',
-    library: 'ac_[name]',
-    libraryTarget: 'var',
+  },
+  devServer: {
+    port: 3000,
+    open: true,
+    inline: true,
+    hot: true,
+    publicPath: '/',
+    contentBase: helpers.root('dist'),
+    historyApiFallback: {
+      index: '/',
+    },
   },
 })
