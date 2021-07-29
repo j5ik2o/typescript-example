@@ -2,6 +2,7 @@ module.exports = {
   root: true,
   env: {
     browser: true,
+    node: true,
     es2021: true,
     commonjs: true,
     'jest/globals': true,
@@ -12,15 +13,20 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:jest/recommended',
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
     'prettier',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 2018,
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 2020,
     sourceType: 'module',
     project: './tsconfig.eslint.json',
   },
-  plugins: ['@typescript-eslint', 'jest'],
+  plugins: ['jest', 'jsx-a11y', 'react', 'react-hooks', '@typescript-eslint'],
   rules: {
     'no-unused-vars': 'off',
     '@typescript-eslint/explicit-function-return-type': 'error',
@@ -43,13 +49,35 @@ module.exports = {
         ignoreRestSiblings: false,
       },
     ],
+    'react/jsx-filename-extension': [
+      'error',
+      {
+        extensions: ['.jsx', '.tsx'],
+      },
+    ],
     'jest/no-disabled-tests': 'warn',
     'jest/no-focused-tests': 'error',
     'jest/no-identical-title': 'error',
     'jest/prefer-to-have-length': 'warn',
     'jest/valid-expect': 'error',
   },
+  overrides: [
+    {
+      files: ['*.tsx'],
+      rules: {
+        'react/prop-types': 'off',
+      },
+    },
+  ],
   settings: {
+    'import/resolver': {
+      node: {
+        paths: ['src'],
+      },
+    },
+    react: {
+      version: 'detect',
+    },
     jest: {
       version: 'latest',
     },
