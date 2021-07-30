@@ -11,7 +11,7 @@ module.exports = merge(commonConfig, {
   mode: 'development',
   target: 'web',
   devtool: 'cheap-module-source-map',
-  entry: ['react-hot-loader/patch', helpers.root('src/App.tsx')],
+  entry: ['react-hot-loader/patch', helpers.root('src/index.tsx')],
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
     alias: {
