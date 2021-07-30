@@ -28,10 +28,15 @@ module.exports = {
           'image-webpack-loader?bypassOnDebug&optipng.optimizationLevel=7&gifsicle.interlaced=false',
         ],
       },
+      {
+        enforce: 'pre',
+        test: /\.ts(x?)$/,
+        loader: 'source-map-loader',
+      },
     ],
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
   },
   output: {
     filename: '[name].bundle.js',

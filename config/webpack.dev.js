@@ -9,7 +9,13 @@ module.exports = merge(commonConfig, {
   mode: 'development',
   target: 'web',
   devtool: 'cheap-module-source-map',
-  entry: ['react-hot-loader/patch', 'webpack/hot/only-dev-server', helpers.root('src/App.tsx')],
+  entry: ['react-hot-loader/patch', helpers.root('src/App.tsx')],
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
+    alias: {
+      'react-dom': '@hot-loader/react-dom',
+    },
+  },
   output: {
     path: helpers.root('dist'),
     filename: '[name].bundle.js',
