@@ -5,6 +5,8 @@ const { merge } = require('webpack-merge')
 const commonConfig = require('./webpack.common.js')
 const webpack = require('webpack')
 
+process.env.NODE_ENV = 'development'
+
 module.exports = merge(commonConfig, {
   mode: 'development',
   target: 'web',
